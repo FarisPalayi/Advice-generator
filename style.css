@@ -132,7 +132,7 @@ body {
 
 .card__btn {
   position: absolute;
-  bottom: -1.6875rem;
+  bottom: -2rem;
   padding: 1.25rem;
 
   background-color: var(--neon-green);
