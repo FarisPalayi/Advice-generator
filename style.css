@@ -84,6 +84,7 @@ select {
   --grayish-blue: hsl(217, 19%, 38%);
   --dark-grayish-blue: hsl(217, 19%, 24%);
   --dark-blue: hsl(218, 23%, 16%);
+  --btn-shadow: 0 0 40px var(--neon-green);
 }
 
 body {
@@ -148,7 +149,7 @@ body {
 }
 
 .card__btn:hover {
-  box-shadow: 0 0 40px var(--neon-green);
+  box-shadow: var(--btn-shadow);
 }
 
 .card__btn:active {
@@ -175,4 +176,19 @@ body {
   overflow: hidden;
   clip: rect(0, 0, 0, 0);
   border: 0;
+}
+
+
+@media only screen and (max-width: 600px) {
+  .card__btn {
+    /* transition: box-shadow 0.1s ease-out, background-color .15s ease-out; */
+  }
+
+  .card__btn:hover {
+    box-shadow: none;
+  }
+
+  .card__btn:active {
+    box-shadow: var(--btn-shadow);
+  }
 }
