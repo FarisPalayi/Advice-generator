@@ -96,6 +96,7 @@ body {
 }
 
 .card {
+  position: relative;
   display: flex;
   flex-direction: column;
   justify-content: center;
@@ -103,27 +104,46 @@ body {
   gap: 1rem;
 
   width: 100%;
-  max-width: 30rem;
-  padding: 1rem;
+  max-width: 33.75rem;
+  padding: 3.15rem 2.8rem 4rem;
 
   background-color: var(--dark-grayish-blue);
-  border-radius: .6rem;
+  border-radius: 1rem;
 }
 
 .card__advice-id {
   color: var(--neon-green);
+  font-size: 0.8125rem;
+  letter-spacing: 0.32em;
   text-transform: uppercase;
 }
 
 .card__advice {
   color: var(--light-cyan);
+  font-size: 1.75rem;
+  line-height: 2.375rem;
+  letter-spacing: -0.015em;
+}
+
+.card__hr {
+  margin: 24px 0 10px 0;
 }
 
 .card__btn {
-  padding: 1rem;
+  position: absolute;
+  bottom: -1.6875rem;
+  padding: 1.25rem;
+
   background-color: var(--neon-green);
   border: none;
   border-radius: 100%;
+  cursor: pointer;
+  transition: box-shadow 0.2s ease-out;
+}
+
+.card__btn:hover,
+.card__btn:focus {
+  box-shadow: 0 0 40px var(--neon-green);
 }
 
 .attribution {
