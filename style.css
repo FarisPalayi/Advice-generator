@@ -77,8 +77,53 @@ select {
 
 /* ------------------------------ reset end --------------------------------- */
 
+:root {
+  --light-cyan: hsl(193, 38%, 86%);
+  --neon-green: hsl(150, 100%, 66%);
+  --grayish-blue: hsl(217, 19%, 38%);
+  --dark-grayish-blue: hsl(217, 19%, 24%);
+  --dark-blue: hsl(218, 23%, 16%);
+}
+
 body {
+  display: grid;
+  place-items: center;
+  margin: 0 1rem;
+
   font-family: 'Manrope', sans-serif;
+  background-color: var(--dark-blue);
+  text-align: center;
+}
+
+.card {
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  gap: 1rem;
+
+  width: 100%;
+  max-width: 30rem;
+  padding: 1rem;
+
+  background-color: var(--dark-grayish-blue);
+  border-radius: .6rem;
+}
+
+.card__advice-id {
+  color: var(--neon-green);
+  text-transform: uppercase;
+}
+
+.card__advice {
+  color: var(--light-cyan);
+}
+
+.card__btn {
+  padding: 1rem;
+  background-color: var(--neon-green);
+  border: none;
+  border-radius: 100%;
 }
 
 .attribution {
