@@ -180,6 +180,10 @@ body {
 
 
 @media only screen and (max-width: 600px) {
+  .card__btn {
+    transition: box-shadow 0.1s ease-out, background-color .15s ease-out;
+  }
+
   .card__btn:hover {
     box-shadow: none;
   }
