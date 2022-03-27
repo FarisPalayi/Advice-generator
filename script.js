@@ -3,15 +3,12 @@ const adviceIdElm = document.querySelector("[data-advice-id]");
 const adviceBtnElm = document.querySelector("[data-advice-generate-btn]");
 
 async function showRandomAdvice() {
-  try {
-    const res = await fetch("https://api.adviceslip.com/advice");
-    const data = await res.json();
-
-    adviceElm.innerText = data.slip.advice;
-    adviceIdElm.innerText = `Advice #${data.slip.id}`;
-  } catch (err) {
-    console.error(err);
-  }
+  await fetch("https://api.adviceslip.com/advice")
+    .then((res) => res.json())
+    .then((data) => {
+      adviceElm.innerText = data.slip.advice;
+      adviceIdElm.innerText = `Advice #${data.slip.id}`;
+    })
 }
 
 adviceBtnElm.addEventListener("click", showRandomAdvice);
