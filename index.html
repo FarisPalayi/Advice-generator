@@ -1,33 +1,49 @@
 <!DOCTYPE html>
 <html lang="en">
-<head>
-  <meta charset="UTF-8">
-  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
 
-  <link rel="icon" type="image/png" sizes="32x32" href="./images/favicon-32x32.png">
-  <link rel="stylesheet" href="style.css">
-  
-  <title>Advice generator app</title>
-</head>
-<body>
+    <link
+      rel="icon"
+      type="image/png"
+      sizes="32x32"
+      href="./images/favicon-32x32.png"
+    />
+    <link rel="stylesheet" href="style.css" />
 
-  <h1 class="sr-only">Advice generator</h1>
+    <title>Advice generator app</title>
+  </head>
+  <body>
+    <h1 class="sr-only">Advice generator</h1>
 
-  <main>
-    <h2 data-advice-id>Advice #117</h2>
+    <main class="card">
+      <h2 class="card__advice-id" data-advice-id>Advice #117</h2>
 
-    <blockquote aria-live="polite">
-      "It is easy to sit up and take notice, what's difficult is getting up and taking action"
-    </blockquote>
+      <blockquote aria-live="polite" class="card__advice" data-advice>
+        "It is easy to sit up and take notice, what's difficult is getting up and taking action"
+      </blockquote>
 
-    <button aria-label="generate new advice">
-      <img src="./images/icon-dice.svg" alt="" width="24" height="24">
-    </button>
-  </main>
-  
-  <div class="attribution">
-    Challenge by <a href="https://www.frontendmentor.io?ref=challenge" target="_blank">Frontend Mentor</a>. 
-    Coded by <a href="https://www.frontendmentor.io/profile/FarisPalayi">Faris P</a>.
-  </div>
-</body>
+      <picture>
+        <source
+          srcset="./images/pattern-divider-desktop.svg"
+          media="(min-width: 768px)"
+        />
+        <img src="./images/pattern-divider-mobile.svg" alt="" />
+      </picture>
+
+      <button
+        aria-label="generate new advice"
+        class="card__btn"
+        data-advice-generate-btn
+      >
+        <img src="./images/icon-dice.svg" alt="" width="24" height="24" />
+      </button>
+    </main>
+
+    <div class="attribution">
+      Challenge by <a href="https://www.frontendmentor.io?ref=challenge" target="_blank">Frontend Mentor</a>.
+      Coded by <a href="https://www.frontendmentor.io/profile/FarisPalayi">Faris P</a>.
+    </div>
+  </body>
 </html>
