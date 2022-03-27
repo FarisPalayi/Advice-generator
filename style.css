@@ -91,7 +91,7 @@ body {
   place-items: center;
   margin: 0 1rem;
 
-  font-family: 'Manrope', sans-serif;
+  font-family: "Manrope", sans-serif;
   background-color: var(--dark-blue);
   text-align: center;
 }
@@ -107,21 +107,25 @@ body {
   width: 100%;
   max-width: 33.75rem;
   padding: 3.15rem 2.8rem 4rem;
+  padding: 3.15rem 1.5rem 2.8rem 1.5rem;
 
   background-color: var(--dark-grayish-blue);
-  border-radius: 1rem;
+  /* border-radius: 1rem; */
+  border-radius: 0.625rem;
 }
 
 .card__advice-id {
   color: var(--neon-green);
   font-size: 0.8125rem;
+  font-size: 0.6875rem;
   letter-spacing: 0.32em;
   text-transform: uppercase;
 }
 
 .card__advice {
   color: var(--light-cyan);
-  font-size: 1.75rem;
+  /* font-size: 1.75rem; */
+  font-size: 1.5rem;
   line-height: 2.375rem;
   letter-spacing: -0.015em;
 }
@@ -139,10 +143,10 @@ body {
   border: none;
   border-radius: 100%;
   cursor: pointer;
-  transition: all 0.2s ease-out;
+  transition: box-shadow 0.2s ease-out, background-color .15s ease-out;
 }
 
-.card__btn:hover{
+.card__btn:hover {
   box-shadow: 0 0 40px var(--neon-green);
 }
 
