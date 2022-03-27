@@ -107,7 +107,7 @@ body {
 
   width: 100%;
   max-width: 33.75rem;
-  padding: 3.15rem 2.8rem 4rem;
+  /* padding: 3.15rem 2.8rem 4rem; */
   padding: 3.15rem 1.5rem 2.8rem 1.5rem;
 
   background-color: var(--dark-grayish-blue);
@@ -140,9 +140,16 @@ body {
   position: absolute;
   bottom: -2rem;
   padding: 1.25rem;
+  height: 4rem;
+  width: 4rem;
 
   background-color: var(--neon-green);
+  background-image: url(./images/icon-dice.svg);
+  background-repeat: no-repeat;
+  background-position: center;
+
   border: none;
+  user-select: none;
   border-radius: 100%;
   cursor: pointer;
   transition: box-shadow 0.2s ease-out, background-color .15s ease-out;
