@@ -10,7 +10,7 @@ function showRandomAdvice(initialCb, successCb, errorCb) {// cb = callback
 
   fetch("https://api.adviceslip.com/advice", { cache: "no-cache" })
     .then((res) => res.json())
-    .then((data) => {
+    .then((data) => { // data validation is omitted
       adviceElm.innerText = data.slip.advice;
       adviceIdElm.innerText = `Advice #${data.slip.id}`;
       successCb();
@@ -53,8 +53,8 @@ function showRandomAdviceHandler() {
   );
 }
 
-adviceBtnElm.addEventListener("click", showRandomAdviceHandler);
-
 showRandomAdviceHandler();
+
+adviceBtnElm.addEventListener("click", showRandomAdviceHandler);
 
 errorRetryBtnElm.addEventListener("click", showRandomAdviceHandler);

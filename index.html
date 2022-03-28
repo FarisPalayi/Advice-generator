@@ -7,7 +7,7 @@
     <link rel="icon" type="image/png" sizes="32x32" href="./images/favicon-32x32.png"/>
     <link rel="preconnect" href="https://fonts.googleapis.com">
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-    <link href="https://fonts.googleapis.com/css2?family=Manrope:wght@800&display=swap" rel="stylesheet">
+    <link href="https://fonts.googleapis.com/css2?family=Manrope:wght@400;800&display=swap" rel="stylesheet">
     <link rel="stylesheet" href="style.css" />
 
     <script src="./script.js" defer></script>
@@ -18,11 +18,14 @@
     <h1 class="sr-only">Advice generator</h1>
 
     <main class="card">
-      <h2 aria-live="polite" class="card__advice-id" data-advice-id>Advice #117</h2>
+      <h2 aria-live="polite" class="card__advice-id" data-advice-id></h2>
 
       <blockquote aria-live="polite" class="card__advice" data-advice></blockquote>
 
-      <h2 data-loader style="display: none">loading...</h2>
+      <section data-loader>
+        <img src="./images/loader.svg" alt="">
+        <p class="sr-only" aria-live="polite">Loading advice...</p>
+      </section>
 
       <picture class="card__hr">
         <source srcset="./images/pattern-divider-desktop.svg" media="(min-width: 540px)" />
@@ -32,7 +35,10 @@
       <button aria-label="generate new advice" class="card__btn" data-advice-generate-btn></button>
     </main>
 
-    <div data-error-snackbar>error... <button data-error-retry-btn>retry</button></div>
+    <div class="snackbar" data-error-snackbar>
+      <span class="snackbar__msg">error... </span>
+      <button class="snackbar__retry-btn" data-error-retry-btn>retry</button>
+    </div>
 
     <div class="attribution" style="display: none;">
       Challenge by <a href="https://www.frontendmentor.io?ref=challenge" target="_blank">Frontend Mentor</a>.
