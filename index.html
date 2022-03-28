@@ -20,9 +20,9 @@
     <main class="card">
       <h2 aria-live="polite" class="card__advice-id" data-advice-id>Advice #117</h2>
 
-      <blockquote aria-live="polite" class="card__advice" data-advice>
-        “It is easy to sit up and take notice, what's difficult is getting up and taking action”
-      </blockquote>
+      <blockquote aria-live="polite" class="card__advice" data-advice></blockquote>
+
+      <h2 data-loader style="display: none">loading...</h2>
 
       <picture class="card__hr">
         <source srcset="./images/pattern-divider-desktop.svg" media="(min-width: 540px)" />
@@ -31,6 +31,8 @@
 
       <button aria-label="generate new advice" class="card__btn" data-advice-generate-btn></button>
     </main>
+
+    <div data-error-snackbar>error... <button data-error-retry-btn>retry</button></div>
 
     <div class="attribution" style="display: none;">
       Challenge by <a href="https://www.frontendmentor.io?ref=challenge" target="_blank">Frontend Mentor</a>.
