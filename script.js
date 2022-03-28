@@ -9,14 +9,15 @@ const errorSnackbarElm = document.querySelector("[data-error-snackbar]");
 const errorSnackbarMsgElm = document.querySelector("[data-error-snackbar-msg]");
 const errorRetryBtnElm = document.querySelector("[data-error-retry-btn]");
 
-
-function showRandomAdvice(initialCb, successCb, errorCb) {// cb = callback
+function showRandomAdvice(initialCb, successCb, errorCb) {
+  // cb = callback
   initialCb();
 
   fetch("https://api.adviceslip.com/advice", { cache: "no-cache" })
     .then((res) => res.json())
-    .then((data) => { // data validation is omitted
-      adviceElm.innerText = data.slip.advice;
+    .then((data) => {
+      // data validation is omitted
+      adviceElm.innerText = `“${data.slip.advice}”`;
       adviceIdElm.innerText = `Advice #${data.slip.id}`;
       successCb();
     })
@@ -49,31 +50,31 @@ function showSnackbar() {
 
 function hideSnackbar() {
   errorSnackbarElm.style.opacity = "0";
+  errorRetryBtnElm.style.display = "none";
   errorSnackbarMsgElm.innerText = "";
-  errorRetryBtnElm.style.display = "none";  
 }
 
-function renderErrorSnackbar(show = true) {
+function renderSnackbar(show = true) {
   const hideSnackbarDelay = 5000; // milliseconds
 
   if (!show) return hideSnackbar();
   showSnackbar();
-  setTimeout(hideSnackbar, hideSnackbarDelay)
+  setTimeout(hideSnackbar, hideSnackbarDelay);
 }
 
 function showRandomAdviceHandler() {
   showRandomAdvice(
     () => {
       renderLoader();
-      renderErrorSnackbar(false);
+      renderSnackbar(false);
     },
     () => {
       renderLoader(false);
-      renderErrorSnackbar(false);
+      renderSnackbar(false);
     },
     () => {
       renderLoader(false);
-      renderErrorSnackbar();
+      renderSnackbar();
     }
   );
 }
