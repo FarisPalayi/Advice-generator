@@ -84,15 +84,17 @@ select {
   --grayish-blue: hsl(217, 19%, 38%);
   --dark-grayish-blue: hsl(217, 19%, 24%);
   --dark-blue: hsl(218, 23%, 16%);
+  --red: hsl(0, 100%, 64%);
   --btn-shadow: 0 0 40px var(--neon-green);
 }
 
 body {
   display: grid;
-  place-items: center;
+  place-content: center;
   margin: 0 1rem;
 
   font-family: "Manrope", sans-serif;
+  font-weight: 800;
   background-color: var(--dark-blue);
   text-align: center;
 }
@@ -156,6 +158,47 @@ body {
 
 .card__btn:active {
   background-color: var(--dark-neon-green);
+}
+
+/* snackbar */
+
+.snackbar {
+  position: absolute;
+  bottom: 2rem;
+  left: 50%;
+  transform: translateX(-50%);
+  padding: .7rem 1rem;
+  border-radius: .25rem;
+  background-color: var(--dark-grayish-blue);
+  font-weight: normal;
+  opacity: 0;
+  transition: opacity 0.2s;
+}
+
+.snackbar__msg {
+  font-size: 0.9rem;
+  color: var(--red);
+  margin-right: 1.3rem;
+}
+
+.snackbar__retry-btn {
+  all: unset;
+  cursor: pointer;
+  padding: 0.1rem 0 0.1rem .3rem;
+  color: var(--neon-green);
+  font-size: 0.75rem;
+  border-radius: .1rem;
+  letter-spacing: 0.23em;
+  text-transform: uppercase;
+  transition: all .2s;
+}
+
+.snackbar__retry-btn:hover {
+  color: var(--dark-neon-green);
+}
+
+.snackbar__retry-btn:focus-visible {
+  text-decoration: underline;
 }
 
 /* attribution */

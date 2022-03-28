@@ -1,9 +1,14 @@
 const adviceElm = document.querySelector("[data-advice]");
 const adviceIdElm = document.querySelector("[data-advice-id]");
 const adviceBtnElm = document.querySelector("[data-advice-generate-btn]");
+
 const loaderElm = document.querySelector("[data-loader]");
+const loaderMsgElm = document.querySelector("[data-loader-msg]");
+
 const errorSnackbarElm = document.querySelector("[data-error-snackbar]");
+const errorSnackbarMsgElm = document.querySelector("[data-error-snackbar-msg]");
 const errorRetryBtnElm = document.querySelector("[data-error-retry-btn]");
+
 
 function showRandomAdvice(initialCb, successCb, errorCb) {// cb = callback
   initialCb();
@@ -24,24 +29,36 @@ function showRandomAdvice(initialCb, successCb, errorCb) {// cb = callback
 function renderLoader(show = true) {
   if (show) {
     loaderElm.style.display = "block";
-    adviceElm.style.display = "none";
-    adviceIdElm.style.display = "none";
+    loaderMsgElm.innerText = "Loading advice..."; // for `aria-live` to work
+    adviceElm.classList.add("sr-only"); // not using `display: none`, cuz, it will mess up the screen reader's ability to read the text
+    adviceIdElm.classList.add("sr-only");
   } else {
     loaderElm.style.display = "none";
-    adviceElm.style.display = "block";
-    adviceIdElm.style.display = "block";
+    loaderMsgElm.innerText = "";
+    adviceElm.classList.remove("sr-only");
+    adviceIdElm.classList.remove("sr-only");
   }
 }
 
 function renderErrorSnackbar(show = true) {
-  show
-    ? (errorSnackbarElm.style.display = "block")
-    : (errorSnackbarElm.style.display = "none");
+  if (show) {
+    errorSnackbarElm.style.opacity = "1";
+    errorSnackbarMsgElm.innerText = "An error occurred. Please try again.";
+    errorRetryBtnElm.style.display = "inline-block";
+    errorRetryBtnElm.focus();
+  } else {
+    errorSnackbarElm.style.opacity = "0";
+    errorSnackbarMsgElm.innerText = "";
+    errorRetryBtnElm.style.display = "none";
+  }
 }
 
 function showRandomAdviceHandler() {
   showRandomAdvice(
-    renderLoader,
+    () => {
+      renderLoader();
+      renderErrorSnackbar(false);
+    },
     () => {
       renderLoader(false);
       renderErrorSnackbar(false);

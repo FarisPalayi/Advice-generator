@@ -22,10 +22,10 @@
 
       <blockquote aria-live="polite" class="card__advice" data-advice></blockquote>
 
-      <section data-loader>
-        <img src="./images/loader.svg" alt="">
-        <p class="sr-only" aria-live="polite">Loading advice...</p>
-      </section>
+      <div>
+        <img src="./images/loader.svg" alt="" aria-hidden="true" data-loader>
+        <p class="sr-only" aria-live="polite" data-loader-msg></p>
+      </div>
 
       <picture class="card__hr">
         <source srcset="./images/pattern-divider-desktop.svg" media="(min-width: 540px)" />
@@ -35,8 +35,8 @@
       <button aria-label="generate new advice" class="card__btn" data-advice-generate-btn></button>
     </main>
 
-    <div class="snackbar" data-error-snackbar>
-      <span class="snackbar__msg">error... </span>
+    <div class="snackbar" data-error-snackbar aria-live="polite">
+      <span class="snackbar__msg" data-error-snackbar-msg></span>
       <button class="snackbar__retry-btn" data-error-retry-btn>retry</button>
     </div>
 
