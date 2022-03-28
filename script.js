@@ -40,17 +40,25 @@ function renderLoader(show = true) {
   }
 }
 
+function showSnackbar() {
+  errorSnackbarElm.style.opacity = "1";
+  errorSnackbarMsgElm.innerText = "An error occurred. Please try again.";
+  errorRetryBtnElm.style.display = "inline-block";
+  errorRetryBtnElm.focus();
+}
+
+function hideSnackbar() {
+  errorSnackbarElm.style.opacity = "0";
+  errorSnackbarMsgElm.innerText = "";
+  errorRetryBtnElm.style.display = "none";  
+}
+
 function renderErrorSnackbar(show = true) {
-  if (show) {
-    errorSnackbarElm.style.opacity = "1";
-    errorSnackbarMsgElm.innerText = "An error occurred. Please try again.";
-    errorRetryBtnElm.style.display = "inline-block";
-    errorRetryBtnElm.focus();
-  } else {
-    errorSnackbarElm.style.opacity = "0";
-    errorSnackbarMsgElm.innerText = "";
-    errorRetryBtnElm.style.display = "none";
-  }
+  const hideSnackbarDelay = 5000; // milliseconds
+
+  if (!show) return hideSnackbar();
+  showSnackbar();
+  setTimeout(hideSnackbar, hideSnackbarDelay)
 }
 
 function showRandomAdviceHandler() {
