@@ -116,7 +116,6 @@ body {
 .card__advice-id {
   color: var(--neon-green);
   font-size: 0.8125rem;
-  font-size: 0.6875rem;
   letter-spacing: 0.32em;
   text-transform: uppercase;
 }
@@ -148,7 +147,7 @@ body {
   user-select: none;
   border-radius: 100%;
   cursor: pointer;
-  transition: box-shadow 0.2s ease-out, background-color .15s ease-out;
+  transition: box-shadow 0.2s ease-out, background-color 0.15s ease-out;
 }
 
 .card__btn:hover {
@@ -181,11 +180,14 @@ body {
   border: 0;
 }
 
-
 @media only screen and (max-width: 600px) {
   .card {
     padding: 3.15rem 1.5rem 2.8rem 1.5rem;
     border-radius: 0.625rem;
+  }
+
+  .card__advice-id {
+    font-size: 0.6875rem;
   }
 
   .card__advice {
@@ -197,7 +199,7 @@ body {
   }
 
   .card__btn {
-    transition: box-shadow 0.1s ease-out, background-color .15s ease-out;
+    transition: box-shadow 0.1s ease-out, background-color 0.15s ease-out;
   }
 
   .card__btn:hover {
