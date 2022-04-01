@@ -10,7 +10,7 @@ const errorSnackbarMsgElm = document.querySelector("[data-error-snackbar-msg]");
 const errorRetryBtnElm = document.querySelector("[data-error-retry-btn]");
 
 /** To run a function after a specified time delay */
-const sleep = (delay) => new Promise((resolve) => setTimeout(resolve, delay))
+const sleep = (duration) => new Promise((resolve) => setTimeout(resolve, duration))
 
 const getRandomAdvice = async () => {
   const res = await fetch("https://api.adviceslip.com/advice", { cache: "no-cache" });
@@ -48,7 +48,6 @@ const showSnackbar = (errMsg = "An error occurred. Please try again.") => {
   sleep(hideSnackbarDelay).then(hideSnackbar);
 }
 
-
 const showRandomAdvice = (initialCb, successCb, errorCb) => { // cb = callback
   initialCb();
 
@@ -64,7 +63,7 @@ const showRandomAdvice = (initialCb, successCb, errorCb) => { // cb = callback
     });
 }
 
-const showRandomAdviceFuncWrapper = () => {
+const showRandomAdviceWrapper = () =>
   showRandomAdvice(
     () => {
       showLoader();
@@ -79,10 +78,9 @@ const showRandomAdviceFuncWrapper = () => {
       showSnackbar();
     }
   );
-}
 
-showRandomAdviceFuncWrapper();
+showRandomAdviceWrapper();
 
-adviceBtnElm.addEventListener("click", showRandomAdviceFuncWrapper);
+adviceBtnElm.addEventListener("click", showRandomAdviceWrapper);
 
-errorRetryBtnElm.addEventListener("click", showRandomAdviceFuncWrapper);
+errorRetryBtnElm.addEventListener("click", showRandomAdviceWrapper);
