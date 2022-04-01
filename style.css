@@ -85,7 +85,11 @@ select {
   --dark-grayish-blue: hsl(217, 19%, 24%);
   --dark-blue: hsl(218, 23%, 16%);
   --red: hsl(0, 100%, 64%);
+
   --btn-shadow: 0 0 40px var(--neon-green);
+  --card-max-width: 33.75rem;
+  --card-btn-size: 4rem;
+  --card-col-space: 1.875rem;
 }
 
 body {
@@ -103,13 +107,12 @@ body {
   position: relative;
   display: flex;
   flex-direction: column;
-  justify-content: center;
   align-items: center;
-  gap: 1rem;
+  gap: var(--card-col-space);
 
   width: 100%;
-  max-width: 33.75rem;
-  padding: 3.15rem 2.8rem 4rem;
+  max-width: var(--card-max-width);
+  padding: var(--card-col-space);
 
   background-color: var(--dark-grayish-blue);
   border-radius: 1rem;
@@ -122,7 +125,13 @@ body {
   text-transform: uppercase;
 }
 
+.card__advice-id,
+.loader__svg {
+  margin-top: calc(var(--card-col-space) / 2);
+}
+
 .card__advice {
+  padding: 0 calc(var(--card-col-space) / 2);
   color: var(--light-cyan);
   font-size: 1.75rem;
   line-height: 2.375rem;
@@ -130,15 +139,16 @@ body {
 }
 
 .card__hr {
-  margin: 1.5rem 0 0.625rem 0;
+  padding: calc(var(--card-col-space) / 3) 0;
+  margin-bottom: var(--card-col-space);
 }
 
 .card__btn {
   position: absolute;
-  bottom: -2rem;
+  bottom: calc(var(--card-btn-size) / -2);
   padding: 1.25rem;
-  height: 4rem;
-  width: 4rem;
+  height: var(--card-btn-size);
+  width: var(--card-btn-size);
 
   background-color: var(--neon-green);
   background-image: url(./images/icon-dice.svg);
@@ -228,8 +238,12 @@ body {
 }
 
 @media only screen and (max-width: 600px) {
+  :root {
+    --card-col-space: 1.5625rem;
+  }
+
   .card {
-    padding: 3.15rem 1.5rem 2.8rem 1.5rem;
+    /* padding: 3.15rem 1.5rem 2.8rem 1.5rem; */
     border-radius: 0.625rem;
   }
 
@@ -242,7 +256,7 @@ body {
   }
 
   .card__hr {
-    margin: 0.8125rem 0 0.625rem 0;
+    /* margin: 0.8125rem 0 0.625rem 0; */
   }
 
   .card__btn {
