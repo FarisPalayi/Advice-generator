@@ -1,13 +1,15 @@
-const adviceElm = document.querySelector("[data-advice]");
-const adviceIdElm = document.querySelector("[data-advice-id]");
-const adviceBtnElm = document.querySelector("[data-advice-generate-btn]");
+const qs = (selector, parent = document) => parent.querySelector(selector);
 
-const loaderElm = document.querySelector("[data-loader]");
-const loaderMsgElm = document.querySelector("[data-loader-msg]");
+const adviceElm = qs("[data-advice]");
+const adviceIdElm = qs("[data-advice-id]");
+const adviceBtnElm = qs("[data-advice-generate-btn]");
 
-const errorSnackbarElm = document.querySelector("[data-error-snackbar]");
-const errorSnackbarMsgElm = document.querySelector("[data-error-snackbar-msg]");
-const errorRetryBtnElm = document.querySelector("[data-error-retry-btn]");
+const loaderElm = qs("[data-loader]");
+const loaderMsgElm = qs("[data-loader-msg]");
+
+const errorSnackbarElm = qs("[data-error-snackbar]");
+const errorSnackbarMsgElm = qs("[data-error-snackbar-msg]");
+const errorRetryBtnElm = qs("[data-error-retry-btn]");
 
 /** To run a function after a specified time delay */
 const sleep = (duration) => new Promise((resolve) => setTimeout(resolve, duration))
