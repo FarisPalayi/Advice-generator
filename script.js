@@ -65,7 +65,7 @@ function renderSnackbar(show = true) {
   setTimeout(hideSnackbar, hideSnackbarDelay);
 }
 
-function showRandomAdviceHandler() {
+function showRandomAdviceFuncWrapper() {
   showRandomAdvice(
     () => {
       renderLoader();
@@ -82,8 +82,8 @@ function showRandomAdviceHandler() {
   );
 }
 
-showRandomAdviceHandler();
+showRandomAdviceFuncWrapper();
 
-adviceBtnElm.addEventListener("click", showRandomAdviceHandler);
+adviceBtnElm.addEventListener("click", showRandomAdviceFuncWrapper);
 
-errorRetryBtnElm.addEventListener("click", showRandomAdviceHandler);
+errorRetryBtnElm.addEventListener("click", showRandomAdviceFuncWrapper);
