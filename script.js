@@ -10,17 +10,46 @@ const errorSnackbarMsgElm = document.querySelector("[data-error-snackbar-msg]");
 const errorRetryBtnElm = document.querySelector("[data-error-retry-btn]");
 
 /** To run a function after a specified time delay */
-function sleep(delay) {
-  return new Promise((resolve) => setTimeout(resolve, delay));
-}
+const sleep = (delay) => new Promise((resolve) => setTimeout(resolve, delay))
 
-async function getRandomAdvice() {
-  const res = await fetch("https://api.adviceslip.com/advice", { cache: "no-cache"});
+const getRandomAdvice = async () => {
+  const res = await fetch("https://api.adviceslip.com/advice", { cache: "no-cache" });
   const randomAdvice = await res.json();
   return randomAdvice;
 }
 
-function showRandomAdvice(initialCb, successCb, errorCb) { // cb = callback
+const showLoader = () => {
+  loaderElm.style.display = "block";
+  loaderMsgElm.innerText = "Loading advice..."; // for `aria-live` to work
+  adviceElm.classList.add("sr-only"); // not using `display: none`, cuz,
+  adviceIdElm.classList.add("sr-only"); // it will mess up the screen reader's ability to read the text
+}
+
+const hideLoader = () => {
+  loaderElm.style.display = "none";
+  loaderMsgElm.innerText = "";
+  adviceElm.classList.remove("sr-only");
+  adviceIdElm.classList.remove("sr-only");
+}
+
+const hideSnackbar = () => {
+  errorSnackbarElm.style.opacity = "0";
+  errorRetryBtnElm.style.display = "none";
+  errorSnackbarMsgElm.innerText = "";
+}
+
+const showSnackbar = (errMsg = "An error occurred. Please try again.") => {
+  errorSnackbarElm.style.opacity = "1";
+  errorSnackbarMsgElm.innerText = errMsg;
+  errorRetryBtnElm.style.display = "inline-block";
+  errorRetryBtnElm.focus();
+
+  const hideSnackbarDelay = 5000; // in milliseconds
+  sleep(hideSnackbarDelay).then(hideSnackbar);
+}
+
+
+const showRandomAdvice = (initialCb, successCb, errorCb) => { // cb = callback
   initialCb();
 
   getRandomAdvice()
@@ -35,37 +64,7 @@ function showRandomAdvice(initialCb, successCb, errorCb) { // cb = callback
     });
 }
 
-function showLoader() {
-  loaderElm.style.display = "block";
-  loaderMsgElm.innerText = "Loading advice..."; // for `aria-live` to work
-  adviceElm.classList.add("sr-only"); // not using `display: none`, cuz,
-  adviceIdElm.classList.add("sr-only"); // it will mess up the screen reader's ability to read the text
-}
-
-function hideLoader() {
-  loaderElm.style.display = "none";
-  loaderMsgElm.innerText = "";
-  adviceElm.classList.remove("sr-only");
-  adviceIdElm.classList.remove("sr-only");
-}
-
-function showSnackbar() {
-  errorSnackbarElm.style.opacity = "1";
-  errorSnackbarMsgElm.innerText = "An error occurred. Please try again.";
-  errorRetryBtnElm.style.display = "inline-block";
-  errorRetryBtnElm.focus();
-
-  const hideSnackbarDelay = 5000; // in milliseconds
-  sleep(hideSnackbarDelay).then(hideSnackbar);
-}
-
-function hideSnackbar() {
-  errorSnackbarElm.style.opacity = "0";
-  errorRetryBtnElm.style.display = "none";
-  errorSnackbarMsgElm.innerText = "";
-}
-
-function showRandomAdviceFuncWrapper() {
+const showRandomAdviceFuncWrapper = () => {
   showRandomAdvice(
     () => {
       showLoader();
