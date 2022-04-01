@@ -160,6 +160,7 @@ body {
   border-radius: 100%;
   cursor: pointer;
   transition: box-shadow 0.2s ease-out, background-color 0.15s ease-out;
+  -webkit-tap-highlight-color: transparent;
 }
 
 .card__btn:hover {
