@@ -9,6 +9,11 @@ const errorSnackbarElm = document.querySelector("[data-error-snackbar]");
 const errorSnackbarMsgElm = document.querySelector("[data-error-snackbar-msg]");
 const errorRetryBtnElm = document.querySelector("[data-error-retry-btn]");
 
+/** To run a function after a specified time delay */
+function sleep(delay) {
+  return new Promise((resolve) => setTimeout(resolve, delay));
+}
+
 async function getRandomAdvice() {
   const res = await fetch("https://api.adviceslip.com/advice", { cache: "no-cache"});
   const randomAdvice = await res.json();
@@ -49,6 +54,9 @@ function showSnackbar() {
   errorSnackbarMsgElm.innerText = "An error occurred. Please try again.";
   errorRetryBtnElm.style.display = "inline-block";
   errorRetryBtnElm.focus();
+
+  const hideSnackbarDelay = 5000; // in milliseconds
+  sleep(hideSnackbarDelay).then(hideSnackbar);
 }
 
 function hideSnackbar() {
