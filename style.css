@@ -131,7 +131,7 @@ body {
 }
 
 .card__advice {
-  padding: 0 calc(var(--card-col-space) / 2);
+  padding: 0 calc(var(--card-col-space) / 3);
   color: var(--light-cyan);
   font-size: 1.75rem;
   line-height: 2.375rem;
@@ -150,11 +150,7 @@ body {
   height: var(--card-btn-size);
   width: var(--card-btn-size);
 
-  background-color: var(--neon-green);
-  background-image: url(./images/icon-dice.svg);
-  background-repeat: no-repeat;
-  background-position: center;
-
+  background: url(./images/icon-dice.svg) no-repeat center var(--neon-green);
   border: none;
   user-select: none;
   border-radius: 100%;
@@ -253,6 +249,7 @@ body {
   }
 
   .card__advice {
+    padding: 0;
     font-size: 1.5rem;
   }
 
