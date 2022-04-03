@@ -23,7 +23,7 @@ const showLoader = () => {
   loaderElm.style.display = "block";
   loaderMsgElm.innerText = "Loading advice..."; // for `aria-live` to work
   adviceElm.classList.add("sr-only"); // not using `display: none`, cuz,
-  adviceIdElm.classList.add("sr-only"); // it will mess up the screen reader's ability to read the text
+  adviceIdElm.classList.add("sr-only"); // aria-live won't work (ie. screen reader won't read changing text)
 }
 
 const hideLoader = () => {
