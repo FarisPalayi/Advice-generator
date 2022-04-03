@@ -34,12 +34,14 @@ const hideLoader = () => {
 }
 
 const hideSnackbar = () => {
+  errorSnackbarElm.style.transition = "opacity 0s";
   errorSnackbarElm.style.opacity = "0";
   errorRetryBtnElm.style.display = "none";
   errorSnackbarMsgElm.innerText = "";
 }
 
 const showSnackbar = (errMsg = "An error occurred. Please try again.") => {
+  errorSnackbarElm.style.transition = "opacity 0.2s";
   errorSnackbarElm.style.opacity = "1";
   errorSnackbarMsgElm.innerText = errMsg;
   errorRetryBtnElm.style.display = "inline-block";
