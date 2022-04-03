@@ -11,8 +11,7 @@ const errorSnackbarElm = qs("[data-error-snackbar]");
 const errorSnackbarMsgElm = qs("[data-error-snackbar-msg]");
 const errorRetryBtnElm = qs("[data-error-retry-btn]");
 
-/** To run a function after a specified time delay */
-const sleep = (duration) => new Promise((resolve) => setTimeout(resolve, duration))
+adviceBtnElm.disabled = false;
 
 const getRandomAdvice = async () => {
   const res = await fetch("https://api.adviceslip.com/advice", { cache: "no-cache" });
@@ -45,9 +44,6 @@ const showSnackbar = (errMsg = "An error occurred. Please try again.") => {
   errorSnackbarMsgElm.innerText = errMsg;
   errorRetryBtnElm.style.display = "inline-block";
   errorRetryBtnElm.focus();
-
-  const hideSnackbarDelay = 5000; // in milliseconds
-  sleep(hideSnackbarDelay).then(hideSnackbar);
 }
 
 const showRandomAdvice = (initialCb, successCb, errorCb) => { // cb = callback

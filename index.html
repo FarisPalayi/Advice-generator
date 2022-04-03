@@ -31,17 +31,19 @@
         </div>
       </section>
 
-      <picture class="card__hr">
+      <picture class="card__hr" style="display: block;">
         <source srcset="./images/pattern-divider-desktop.svg" media="(min-width: 540px)" />
         <img src="./images/pattern-divider-mobile.svg" alt="" />
       </picture>
 
-      <button aria-label="generate new advice" class="card__btn" data-advice-generate-btn></button>
+      <button class="card__btn" disabled data-advice-generate-btn>
+        Generate random advice
+      </button>
     </main>
 
     <div class="snackbar" data-error-snackbar aria-live="polite">
       <span class="snackbar__msg" data-error-snackbar-msg></span>
-      <button class="snackbar__retry-btn" data-error-retry-btn>retry</button>
+      <button class="snackbar__retry-btn" data-error-retry-btn style="display: none;">retry</button>
     </div>
 
     <div class="attribution" style="display: none;">

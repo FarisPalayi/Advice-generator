@@ -150,6 +150,7 @@ body {
   height: var(--card-btn-size);
   width: var(--card-btn-size);
 
+  color: transparent;
   background: url(./images/icon-dice.svg) no-repeat center var(--neon-green);
   border: none;
   user-select: none;
@@ -159,11 +160,15 @@ body {
   -webkit-tap-highlight-color: transparent;
 }
 
-.card__btn:hover {
+.card__btn:disabled {
+  filter: brightness(0.65);
+}
+
+.card__btn:not(:disabled):hover {
   box-shadow: var(--btn-shadow);
 }
 
-.card__btn:active {
+.card__btn:not(:disabled):active {
   background-color: var(--dark-neon-green);
 }
 
@@ -261,11 +266,11 @@ body {
     transition: box-shadow 0.1s ease-out, background-color 0.15s ease-out;
   }
 
-  .card__btn:hover {
+  .card__btn:not(:disabled):hover {
     box-shadow: none;
   }
 
-  .card__btn:active {
+  .card__btn:not(:disabled):active {
     box-shadow: var(--btn-shadow);
   }
 }
