@@ -53,7 +53,8 @@ const showRandomAdvice = (initialCb, successCb, errorCb) => { // cb = callback
 
   getRandomAdvice()
     .then((data) => { // data validation is omitted for now
-      adviceElm.innerText = `“${data.slip.advice}”`;
+      adviceElm.innerText = ""; // reset
+      splitTextAnimation(adviceElm, data.slip.advice);
       adviceIdElm.innerText = `Advice #${data.slip.id}`;
       successCb();
     })
@@ -84,3 +85,15 @@ showRandomAdviceWrapper();
 adviceBtnElm.addEventListener("click", showRandomAdviceWrapper);
 
 errorRetryBtnElm.addEventListener("click", showRandomAdviceWrapper);
+
+// test
+const txtElm = qs("#test")
+
+const splitTextAnimation = (elm, txt) => {
+  txt.split("").map((char, i) => {
+    let style = `animation-delay: ${(0.5 + i / 50)}s`
+    elm.innerHTML += `<span style="${style}">${char}</span>`;
+  })
+} 
+
+// splitTextAnimation(txtElm, "Hello World!");
