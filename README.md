@@ -35,8 +35,8 @@ Users should be able to:
 
 ### Screenshot
 
-![screenshot of the site in desktop](/images/screenshot-desktop.png)
 ![screenshot of the site in mobile](/images/screenshot-mobile.png)
+![screenshot of the site in desktop](/images/screenshot-desktop.png)
 
 ### Links
 
