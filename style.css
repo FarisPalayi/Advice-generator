@@ -119,7 +119,6 @@ main {
   padding: var(--card-col-space);
 
   background-color: var(--dark-grayish-blue);
-  border-radius: 1rem;
   border-radius: clamp(0.625rem, 2.67vw, 1rem);
   animation: slide-up 0.5s ease-out backwards;
 }
@@ -128,7 +127,6 @@ main {
   --txt-animation-order: 1;
 
   color: var(--neon-green);
-  font-size: 0.6875rem;
   font-size: clamp(0.56rem, 2.94vw, 0.8125rem);
   letter-spacing: 0.32em;
   text-transform: uppercase;
