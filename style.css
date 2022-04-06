@@ -132,11 +132,6 @@ main {
   text-transform: uppercase;
 }
 
-.card__advice-id,
-.loader__svg {
-  margin-top: calc(var(--card-col-space) / 2);
-}
-
 .card__advice {
   --txt-animation-order: 2;
 
@@ -148,18 +143,26 @@ main {
 }
 
 .card__advice-id,
+.loader__svg {
+  margin-top: calc(var(--card-col-space) / 2);
+}
+
+.card__advice-id,
 .card__advice {
   animation: slide-up 0.7s cubic-bezier(0.250, 0.460, 0.450, 0.940) backwards;
-  animation-delay: calc(0.4s + var(--txt-animation-order) * 0.3s);
 }
 
 .card__hr {
+  --txt-animation-order: 3;
+
   padding: calc(var(--card-col-space) / 3) 0;
   margin-bottom: var(--card-col-space);
-  animation: scale-x-center 0.25s 1.2s ease-out backwards;
+  animation: slide-up 0.25s 1.2s ease-out backwards;
 }
 
 .card__btn {
+  --txt-animation-order: 4;
+
   position: absolute;
   bottom: calc(var(--card-btn-size) / -2);
   padding: 1.25rem;
@@ -188,6 +191,13 @@ main {
 
 .card__btn:not(:disabled):active {
   background-color: var(--dark-neon-green);
+}
+
+.card__advice-id,
+.card__advice,
+.card__hr,
+.card__btn {
+  animation-delay: calc(0.4s + var(--txt-animation-order) * 0.4s);
 }
 
 /* snackbar */
@@ -268,21 +278,10 @@ main {
   0% { 
     transform: scale(0);
     opacity: 0;
-   }
+  }
   100% { 
     transform: scale(1);
     opacity: 1;
-   }
-}
-
-@keyframes scale-x-center {
-  0% { 
-    opacity: 0;
-    transform: scaleX(0);
-  }
-  100% { 
-    opacity: 1;
-    transform: scaleX(1);
   }
 }
 
