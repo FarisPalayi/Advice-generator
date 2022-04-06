@@ -19,35 +19,37 @@
     <title>Advice generator app</title>
   </head>
   <body>
-    <h1 class="sr-only">Advice generator</h1>
+    <main>
+      <h1 class="sr-only">Advice generator</h1>
 
-    <main class="card">
-      <h2 aria-live="polite" class="card__advice-id" data-advice-id>Advice #117</h2>
-
-      <section>
-        <blockquote aria-live="polite" class="card__advice" data-advice>
-          “It is easy to sit up and take notice, what's difficult is getting up and taking action”
-        </blockquote>
+      <article class="card">
+        <h2 aria-live="polite" class="card__advice-id" data-advice-id>Advice #117</h2>
   
-        <div class="loader">
-          <img src="./images/loader.svg" alt="" class="loader__svg" style="display: none;" data-loader>
-          <p class="sr-only" aria-live="polite" data-loader-msg></p>
-        </div>
-      </section>
-
-      <picture class="card__hr" style="display: block;">
-        <source srcset="./images/pattern-divider-desktop.svg" media="(min-width: 540px)" />
-        <img src="./images/pattern-divider-mobile.svg" alt="" />
-      </picture>
-
-      <button class="card__btn" data-advice-generate-btn disabled>
-        Generate random advice
-      </button>
+        <section>
+          <blockquote aria-live="polite" class="card__advice" data-advice>
+            “It is easy to sit up and take notice, what's difficult is getting up and taking action”
+          </blockquote>
+    
+          <div class="loader">
+            <img src="./images/loader.svg" alt="" class="loader__svg" style="display: none;" data-loader>
+            <p class="sr-only" aria-live="polite" data-loader-msg></p>
+          </div>
+        </section>
+  
+        <picture class="card__hr" style="display: block;">
+          <source srcset="./images/pattern-divider-desktop.svg" media="(min-width: 540px)" />
+          <img src="./images/pattern-divider-mobile.svg" alt="" />
+        </picture>
+  
+        <button class="card__btn" data-advice-generate-btn disabled>
+          Generate random advice
+        </button>
+      </article>
+  
+      <div class="snackbar" aria-live="polite" data-error-snackbar>
+        <span class="snackbar__msg" data-error-snackbar-msg></span>
+        <button class="snackbar__retry-btn" style="display: none;" data-error-retry-btn>retry</button>
+      </div>
     </main>
-
-    <div class="snackbar" aria-live="polite" data-error-snackbar>
-      <span class="snackbar__msg" data-error-snackbar-msg></span>
-      <button class="snackbar__retry-btn" style="display: none;" data-error-retry-btn>retry</button>
-    </div>
   </body>
 </html>

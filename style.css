@@ -34,7 +34,6 @@ html:focus-within {
 
 /* Set core body defaults */
 body {
-  min-height: 100vh;
   text-rendering: optimizeSpeed;
   line-height: 1.5;
 }
@@ -93,14 +92,17 @@ select {
 }
 
 body {
-  display: grid;
-  place-content: center;
-  margin: 0 1rem;
-
   font-family: "Manrope", sans-serif;
   font-weight: 800;
   background-color: var(--dark-blue);
   text-align: center;
+}
+
+main {
+  min-height: 100vh;
+  display: grid;
+  place-content: center;
+  margin: 0 1rem;
 }
 
 .card {
