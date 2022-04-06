@@ -79,7 +79,7 @@ const showRandomAdviceWrapper = () =>
     }
   );
 
-// showRandomAdviceWrapper();
+showRandomAdviceWrapper();
 
 adviceBtnElm.addEventListener("click", showRandomAdviceWrapper);
 
