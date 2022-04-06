@@ -120,7 +120,7 @@ main {
 
   background-color: var(--dark-grayish-blue);
   border-radius: clamp(0.625rem, 2.67vw, 1rem);
-  animation: slide-up 0.5s ease-out backwards;
+  /* animation: slide-up 0.5s ease-out backwards; */
 }
 
 .card__advice-id {
@@ -158,7 +158,7 @@ main {
 .card__advice-id,
 .card__advice,
 .card__hr {
-  animation: slide-up 0.7s cubic-bezier(0.250, 0.460, 0.450, 0.940) backwards;
+  /* animation: slide-up 0.7s cubic-bezier(0.250, 0.460, 0.450, 0.940) backwards; */
 }
 
 .card__btn {
@@ -179,7 +179,7 @@ main {
   overflow: hidden;
   transition: box-shadow 0.2s ease-out, background-color 0.15s ease-out;
   -webkit-tap-highlight-color: transparent;
-  animation: scale-up 0.25s 1.5s ease-out backwards;
+  /* animation: scale-up 0.25s 1.5s ease-out backwards; */
 }
 
 .card__btn:disabled {
