@@ -194,13 +194,20 @@ main {
 
 .snackbar {
   position: absolute;
+  display: flex;
+  justify-content: center;
+  gap: 0.28em 1.77em;
+  flex-wrap: wrap;
+
   bottom: 2rem;
   left: 50%;
   transform: translateX(-50%);
-  padding: .7rem 1rem;
   width: fit-content;
   max-width: calc(100vw - 2rem);
-  border-radius: .25rem;
+  padding: 0.7rem 1rem;
+
+  font-size: clamp(0.78rem, 2.95vw, 0.9rem);
+  border-radius: 0.25rem;
   background-color: var(--dark-grayish-blue);
   font-weight: normal;
   opacity: 0;
@@ -208,18 +215,16 @@ main {
 }
 
 .snackbar__msg {
-  font-size: 0.9rem;
   color: var(--red);
-  margin-right: 1.3rem;
 }
 
 .snackbar__retry-btn {
   all: unset;
+  padding: 0.1rem 0;
   cursor: pointer;
-  padding: 0.1rem 0 0.1rem .3rem;
   color: var(--neon-green);
-  font-size: 0.75rem;
-  border-radius: .1rem;
+  font-size: 0.835em;
+  border-radius: 0.1rem;
   letter-spacing: 0.23em;
   text-transform: uppercase;
   transition: all .2s;
