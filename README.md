@@ -40,7 +40,7 @@ Users should be able to:
 
 ### Links
 
-- [Solution URL](https://example.com)
+- [Solution URL](https://www.frontendmentor.io/solutions/advice-generator-app-html-css-js-Syva8coQ9)
 - [Live Site URL](https://advice-generator-farisp.netlify.app)
 
 ## My process
