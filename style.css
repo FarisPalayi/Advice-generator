@@ -104,6 +104,8 @@ body {
 }
 
 .card {
+  --txt-animation-order: 0;
+
   position: relative;
   display: flex;
   flex-direction: column;
@@ -117,9 +119,12 @@ body {
   background-color: var(--dark-grayish-blue);
   border-radius: 1rem;
   border-radius: clamp(0.625rem, 2.67vw, 1rem);
+  animation: slide-up 0.5s ease-out backwards;
 }
 
 .card__advice-id {
+  --txt-animation-order: 1;
+
   color: var(--neon-green);
   font-size: 0.6875rem;
   font-size: clamp(0.56rem, 2.94vw, 0.8125rem);
@@ -133,6 +138,8 @@ body {
 }
 
 .card__advice {
+  --txt-animation-order: 2;
+
   padding: 0 calc(var(--card-col-space) / 3);
   color: var(--light-cyan);
   font-size: clamp(1rem, 1rem + 2.14vw, 1.75rem);
@@ -140,9 +147,16 @@ body {
   letter-spacing: -0.015em;
 }
 
+.card__advice-id,
+.card__advice {
+  animation: slide-up 0.7s cubic-bezier(0.250, 0.460, 0.450, 0.940) backwards;
+  animation-delay: calc(0.4s + var(--txt-animation-order) * 0.3s);
+}
+
 .card__hr {
   padding: calc(var(--card-col-space) / 3) 0;
   margin-bottom: var(--card-col-space);
+  animation: scale-x-center 0.25s 1.2s ease-out backwards;
 }
 
 .card__btn {
@@ -161,6 +175,7 @@ body {
   overflow: hidden;
   transition: box-shadow 0.2s ease-out, background-color 0.15s ease-out;
   -webkit-tap-highlight-color: transparent;
+  animation: scale-up 0.25s 1.5s ease-out backwards;
 }
 
 .card__btn:disabled {
@@ -230,6 +245,43 @@ body {
   clip: rect(0, 0, 0, 0);
   border: 0;
 }
+
+/* anim */
+
+@keyframes slide-up {
+  from { 
+    transform: translateY(1rem);
+    opacity: 0;
+  }
+  to { 
+    transform: translateY(0);
+    opacity: 1;
+  }
+}
+
+@keyframes scale-up {
+  0% { 
+    transform: scale(0);
+    opacity: 0;
+   }
+  100% { 
+    transform: scale(1);
+    opacity: 1;
+   }
+}
+
+@keyframes scale-x-center {
+  0% { 
+    opacity: 0;
+    transform: scaleX(0);
+  }
+  100% { 
+    opacity: 1;
+    transform: scaleX(1);
+  }
+}
+
+/* mq */
 
 @media only screen and (max-width: 540px) {
   .card__advice {
