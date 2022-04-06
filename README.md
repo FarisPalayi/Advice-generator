@@ -29,7 +29,7 @@ Users should be able to:
 - Generate a new piece of advice by clicking the dice icon
 
 ### Extra Features
-- Generates random advice
+- Intro transition animation
 - Shows a snackbar on request failure
 - Shows a simple loader while loading for advices
 
