@@ -32,6 +32,7 @@ Users should be able to:
 - Intro transition animation
 - Shows a snackbar on request failure
 - Shows a simple loader while loading for advices
+- Progressively enhanced
 
 ### Screenshot
 
