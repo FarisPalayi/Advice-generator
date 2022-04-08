@@ -296,8 +296,10 @@ main {
   .card__hr {
     padding-top: 0;
   }
+}
 
-  .card__btn {
+@media only screen and (hover: none) {
+    .card__btn {
     transition: box-shadow 0.1s ease-out, background-color 0.15s ease-out;
   }
 
