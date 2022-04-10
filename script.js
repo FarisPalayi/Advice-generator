@@ -76,7 +76,7 @@ const showRandomAdvice = (initialCb, successCb, errorCb) => { // cb = callback
     });
 };
 
-let runAnimation = false; // to prevent anim(setNewAdviceAnimation) from running when page is loaded
+let runAnimation = false; // to prevent setNewAdviceAnimation from running when page is loaded
 
 const runNewAdviceAnim = (set = true) => {
   if (runAnimation === true) setNewAdviceAnimation(set);
