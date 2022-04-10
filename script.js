@@ -11,7 +11,7 @@ const errorSnackbarElm = qs("[data-error-snackbar]");
 const errorSnackbarMsgElm = qs("[data-error-snackbar-msg]");
 const errorRetryBtnElm = qs("[data-error-retry-btn]");
 
-const disableBtn = (btn, disable = true) => (btn.disabled = disable);
+const disableBtn = (btn, disable = true) => (btn?.disabled = disable);
 
 disableBtn(adviceBtnElm, false);
 
