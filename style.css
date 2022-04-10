@@ -202,7 +202,7 @@ main {
 .card-advice-anim,
 .card-hr-anim,
 .card-btn-anim {
-  animation-delay: calc(0.4s + var(--txt-animation-order) * 0.4s);
+  animation-delay: calc(0.1s + var(--txt-animation-order) * 0.4s);
 }
 
 /* snackbar */
