@@ -63,13 +63,11 @@ const setNewAdviceAnimation = (enable) => {
   root.style.setProperty("--txt-anim-interval", "0.28s");
 };
 
-const showRandomAdvice = (initialCb, successCb, errorCb) => {
-  // cb = callback
+const showRandomAdvice = (initialCb, successCb, errorCb) => { // cb = callback
   initialCb();
 
   getRandomAdvice()
-    .then((data) => {
-      // data validation is omitted for now
+    .then((data) => { // data validation is omitted for now
       adviceElm.innerText = `“${data.slip.advice}”`;
       adviceIdElm.innerText = `Advice #${data.slip.id}`;
       successCb();
