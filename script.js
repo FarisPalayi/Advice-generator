@@ -18,9 +18,7 @@ const disableBtn = (disable = true, btn = adviceBtnElm) => {
 disableBtn(false);
 
 const getRandomAdvice = async () => {
-  const res = await fetch("https://api.adviceslip.com/advice", {
-    cache: "no-cache",
-  });
+  const res = await fetch("https://api.adviceslip.com/advice", { cache: "no-cache" });
   const randomAdvice = await res.json();
   return randomAdvice;
 };
