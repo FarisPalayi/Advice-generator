@@ -178,6 +178,11 @@ main {
   background-color: var(--dark-neon-green);
 }
 
+.card__btn:focus-visible {
+  outline: 2px inset var(--neon-green);
+  outline-offset: 3px;
+}
+
 /* animation */
 
 .card { --txt-animation-order: 0 }
