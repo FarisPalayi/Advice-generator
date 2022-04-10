@@ -54,7 +54,7 @@ const setNewAdviceAnimation = (enable) => {
   adviceIdElm.classList.toggle("card-advice-id-anim", enable);
   adviceIdElm.style.setProperty("--txt-animation-order", 0); // to prevent delay
   adviceElm.style.setProperty("--txt-animation-order", 1);
-  root.style.setProperty("--txt-anim-interval", "0.27s");
+  root.style.setProperty("--txt-anim-interval", "0.28s");
 }
 
 const showRandomAdvice = (initialCb, successCb, errorCb) => { // cb = callback
