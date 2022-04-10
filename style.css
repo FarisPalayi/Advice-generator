@@ -106,8 +106,6 @@ main {
 }
 
 .card {
-  --txt-animation-order: 0;
-
   position: relative;
   display: flex;
   flex-direction: column;
@@ -120,12 +118,9 @@ main {
 
   background-color: var(--dark-grayish-blue);
   border-radius: clamp(0.625rem, 2.67vw, 1rem);
-  animation: slide-up 0.5s ease-out backwards;
 }
 
 .card__advice-id {
-  --txt-animation-order: 1;
-
   color: var(--neon-green);
   font-size: clamp(0.56rem, 2.94vw, 0.8125rem);
   letter-spacing: 0.32em;
@@ -133,8 +128,6 @@ main {
 }
 
 .card__advice {
-  --txt-animation-order: 2;
-
   padding: 0 calc(var(--card-col-space) / 3);
   color: var(--light-cyan);
   font-size: clamp(1rem, 1rem + 2.14vw, 1.75rem);
@@ -149,21 +142,11 @@ main {
 
 
 .card__hr {
-  --txt-animation-order: 3;
-  
   padding: calc(var(--card-col-space) / 3) 0;
   margin-bottom: var(--card-col-space);
 }
 
-.card__advice-id,
-.card__advice,
-.card__hr {
-  animation: slide-up 0.7s cubic-bezier(0.250, 0.460, 0.450, 0.940) backwards;
-}
-
 .card__btn {
-  --txt-animation-order: 4;
-
   position: absolute;
   bottom: calc(var(--card-btn-size) / -2);
   padding: 1.25rem;
@@ -179,7 +162,6 @@ main {
   overflow: hidden;
   transition: box-shadow 0.2s ease-out, background-color 0.15s ease-out;
   -webkit-tap-highlight-color: transparent;
-  animation: scale-up 0.25s 1.5s ease-out backwards;
 }
 
 .card__btn:disabled {
@@ -194,10 +176,32 @@ main {
   background-color: var(--dark-neon-green);
 }
 
-.card__advice-id,
-.card__advice,
-.card__hr,
-.card__btn {
+/* animation */
+
+.card { --txt-animation-order: 0 }
+.card-advice-id-anim { --txt-animation-order: 0 }
+.card-advice-anim { --txt-animation-order: 1 }
+.card-hr-anim { --txt-animation-order: 2 }
+.card-btn-anim { --txt-animation-order: 3 }
+
+.card-anim {
+  animation: slide-up 0.5s ease-out backwards;
+}
+
+.card-btn-anim {
+  animation: scale-up 0.25s 1.5s ease-out backwards;
+}
+
+.card-advice-id-anim,
+.card-advice-anim,
+.card-hr-anim {
+  animation: slide-up 0.7s cubic-bezier(0.250, 0.460, 0.450, 0.940) backwards;
+}
+
+.card-advice-id-anim,
+.card-advice-anim,
+.card-hr-anim,
+.card-btn-anim {
   animation-delay: calc(0.4s + var(--txt-animation-order) * 0.4s);
 }
 
@@ -289,17 +293,12 @@ main {
 /* mq */
 
 @media only screen and (max-width: 540px) {
-  .card__advice {
-    padding: 0;
-  }
-
-  .card__hr {
-    padding-top: 0;
-  }
+  .card__advice { padding: 0; }
+  .card__hr { padding-top: 0; }
 }
 
 @media only screen and (hover: none) {
-    .card__btn {
+  .card__btn {
     transition: box-shadow 0.1s ease-out, background-color 0.15s ease-out;
   }
 
