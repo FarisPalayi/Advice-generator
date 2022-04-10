@@ -48,6 +48,11 @@ const showSnackbar = (errMsg = "An error occurred. Please try again.") => {
   errorRetryBtnElm.focus();
 }
 
+const restartAdviceAnimation = (enable = true) => {
+  adviceElm.classList.toggle("card-advice-anim", enable);
+  adviceIdElm.classList.toggle("card-advice-id-anim", enable);
+}
+
 const showRandomAdvice = (initialCb, successCb, errorCb) => { // cb = callback
   initialCb();
 
@@ -68,10 +73,12 @@ const showRandomAdviceWrapper = () =>
     () => {
       showLoader();
       hideSnackbar();
+      restartAdviceAnimation(false);
     },
     () => {
       hideLoader();
       hideSnackbar();
+      restartAdviceAnimation();
     },
     () => {
       hideLoader();
