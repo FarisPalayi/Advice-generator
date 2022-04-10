@@ -11,9 +11,11 @@ const errorSnackbarElm = qs("[data-error-snackbar]");
 const errorSnackbarMsgElm = qs("[data-error-snackbar-msg]");
 const errorRetryBtnElm = qs("[data-error-retry-btn]");
 
-const disableBtn = (btn, disable = true) => (btn?.disabled = disable);
+const disableBtn = (disable = true, btn = adviceBtnElm) => {
+  btn.disabled = disable;
+}
 
-disableBtn(adviceBtnElm, false);
+disableBtn(false);
 
 const getRandomAdvice = async () => {
   const res = await fetch("https://api.adviceslip.com/advice", {
@@ -89,20 +91,20 @@ const showRandomAdviceWrapper = () =>
     () => {
       showLoader();
       hideSnackbar();
-      disableBtn(adviceBtnElm);
+      disableBtn();
       runNewAdviceAnim(false);
     },
     () => {
       hideLoader();
       hideSnackbar();
       runNewAdviceAnim();
-      disableBtn(adviceBtnElm, false);
+      disableBtn(false);
       runAnimation = true; // `true` only after fetching the first advice
     },
     () => {
       hideLoader();
       showSnackbar();
-      disableBtn(adviceBtnElm, false);
+      disableBtn(false);
     }
   );
 
