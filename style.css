@@ -167,6 +167,7 @@ main {
 
 .card__btn:disabled {
   filter: brightness(0.65);
+  cursor: not-allowed;
 }
 
 .card__btn:not(:disabled):hover {
