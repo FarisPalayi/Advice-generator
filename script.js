@@ -48,9 +48,13 @@ const showSnackbar = (errMsg = "An error occurred. Please try again.") => {
   errorRetryBtnElm.focus();
 }
 
-const restartAdviceAnimation = (enable = true) => {
+const setNewAdviceAnimation = (enable) => {
+  const root = document.documentElement;
   adviceElm.classList.toggle("card-advice-anim", enable);
   adviceIdElm.classList.toggle("card-advice-id-anim", enable);
+  adviceIdElm.style.setProperty("--txt-animation-order", 0); // to prevent delay
+  adviceElm.style.setProperty("--txt-animation-order", 1);
+  root.style.setProperty("--txt-anim-interval", "0.27s");
 }
 
 const showRandomAdvice = (initialCb, successCb, errorCb) => { // cb = callback
@@ -68,17 +72,24 @@ const showRandomAdvice = (initialCb, successCb, errorCb) => { // cb = callback
     });
 }
 
+let runAnimation = false; // to prevent anim(setNewAdviceAnimation) from running when page is loaded
+
+const runNewAdviceAnim = (set = true) => {
+  if (runAnimation === true) setNewAdviceAnimation(set);
+}
+
 const showRandomAdviceWrapper = () =>
   showRandomAdvice(
     () => {
       showLoader();
       hideSnackbar();
-      restartAdviceAnimation(false);
+      runNewAdviceAnim(false);
     },
     () => {
       hideLoader();
       hideSnackbar();
-      restartAdviceAnimation();
+      runNewAdviceAnim();
+      runAnimation = true; // `true` only after fetching the first advice
     },
     () => {
       hideLoader();

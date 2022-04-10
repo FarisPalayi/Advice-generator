@@ -89,6 +89,7 @@ select {
   --card-max-width: 33.75rem;
   --card-btn-size: 4rem;
   --card-col-space: clamp(1.5625rem, 6.67vw, 1.875rem);
+  --txt-anim-interval: 0.4s;
 }
 
 body {
@@ -179,10 +180,10 @@ main {
 /* animation */
 
 .card { --txt-animation-order: 0 }
-.card-advice-id-anim { --txt-animation-order: 0 }
-.card-advice-anim { --txt-animation-order: 1 }
-.card-hr-anim { --txt-animation-order: 2 }
-.card-btn-anim { --txt-animation-order: 3 }
+.card-advice-id-anim { --txt-animation-order: 1 }
+.card-advice-anim { --txt-animation-order: 2 }
+.card-hr-anim { --txt-animation-order: 3 }
+.card-btn-anim { --txt-animation-order: 4 }
 
 .card-anim {
   animation: slide-up 0.5s ease-out backwards;
@@ -202,7 +203,7 @@ main {
 .card-advice-anim,
 .card-hr-anim,
 .card-btn-anim {
-  animation-delay: calc(0.1s + var(--txt-animation-order) * 0.4s);
+  animation-delay: calc(var(--txt-anim-interval) + var(--txt-animation-order) * var(--txt-anim-interval));
 }
 
 /* snackbar */
